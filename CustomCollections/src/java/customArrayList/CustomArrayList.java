@@ -35,9 +35,13 @@ public class CustomArrayList<T> implements CustomList<T> {
         this.array = list.toArray();
     }
 
+    public CustomArrayList(Collection<? extends T> list) {
+        this.clear();
+        this.addAll(list);
+    }
+
     public void add(T element) {
-        if (size == capacity) expand();
-        this.array[size++] = element;
+        add(size, element);
         setSorted(false);
     }
 

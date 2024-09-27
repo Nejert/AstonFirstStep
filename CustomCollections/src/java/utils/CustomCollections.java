@@ -1,5 +1,7 @@
 package utils;
 
+import java.util.Comparator;
+
 public class CustomCollections {
     public static <T> T[] copy(T[] original, int newLength) {
         T[] res = (T[]) new Object[newLength];
@@ -14,5 +16,13 @@ public class CustomCollections {
         T temp = original[i];
         original[i] = original[j];
         original[j] = temp;
+    }
+
+    public static <T> void sort(CustomList<T> list) {
+        list.sort();
+    }
+
+    public static <T> void sort(CustomList<T> list, Comparator<? super T> c) {
+        list.sort(c);
     }
 }
