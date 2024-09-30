@@ -19,7 +19,7 @@ public class Main {
         list2.add(3);
         list2.add(2);
         list2.add(1);
-        CustomList<Integer> list3 = new CustomArrayList<>(Arrays.asList(6,4,5));
+        CustomList<Integer> list3 = new CustomArrayList<>(Arrays.asList(6, 4, 5));
         list2.addAll(list3);
         list2.sort();
         System.out.println(list2);
