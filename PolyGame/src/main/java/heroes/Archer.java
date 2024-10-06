@@ -1,15 +1,19 @@
 package heroes;
 
+import weapons.RangeWeapon;
+
 /**
  * Class with overridden {@code performAbility()} to perform the ability to become invulnerable
  * when {@code energy} reaches its maximum.
  *
+ * @param <T> the type of weapon hero is equipped with.
+ *            Archer's weapon type can only be associated with {@link RangeWeapon}s
  * @see Hero
  */
-public class Archer extends Hero {
+public class Archer<T extends RangeWeapon> extends Hero {
 
   private static final int INITIAL_HEALTH = 7;
-  private static final int INITIAL_DAMAGE = 2;
+  //private static final int INITIAL_DAMAGE = 2;
   private static final int INITIAL_ENERGY = 0;
 
   private boolean isInvulnerable;
@@ -19,10 +23,11 @@ public class Archer extends Hero {
    *
    * @param name name of Archer
    */
-  public Archer(String name) {
+  public Archer(String name, T weapon) {
     super(name);
+    this.weapon = weapon;
     this.health = INITIAL_HEALTH;
-    this.damage = INITIAL_DAMAGE;
+    this.damage = weapon.getDamage();
     this.energy = INITIAL_ENERGY;
     isInvulnerable = false;
   }

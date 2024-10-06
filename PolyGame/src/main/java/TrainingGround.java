@@ -1,10 +1,15 @@
 import enemies.Enemy;
 import enemies.Zombie;
+import heroes.Archer;
 import heroes.Hero;
+import heroes.Mage;
 import heroes.Warrior;
+import weapons.Axe;
+import weapons.Bow;
+import weapons.Wand;
 
 /**
- * Сlass for testing combat between entities.
+ * Class for testing combat between entities.
  *
  * @see Hero
  * @see Enemy
@@ -18,12 +23,16 @@ public class TrainingGround {
    */
   public static void main(String[] args) {
 
-    Enemy zombie = new Zombie("Shaun");
-    Hero warrior = new Warrior("Pica");
+    final Enemy zombie = new Zombie("Shaun");
+    final Hero warrior = new Warrior<>("Pica", new Axe());
+    final Hero mage = new Mage<>("Catus", new Wand());
+    final Hero archer = new Archer<>("Procyon", new Bow());
 
     warrior.attack(zombie);
     zombie.attack(warrior);
     warrior.attack(zombie);
     zombie.attack(warrior);
+    mage.attack(archer);
+    archer.attack(mage);
   }
 }

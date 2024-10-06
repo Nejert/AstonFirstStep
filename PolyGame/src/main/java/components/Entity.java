@@ -1,6 +1,7 @@
 package components;
 
 import lombok.Getter;
+import weapons.Weapon;
 
 /**
  * Abstract class representing an entity and implementing the {@link Mortal} interface.

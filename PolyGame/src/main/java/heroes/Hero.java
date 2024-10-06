@@ -1,6 +1,8 @@
 package heroes;
 
 import components.Entity;
+import lombok.Getter;
+import weapons.Weapon;
 
 /**
  * Class {@code Hero} is the root of Hero hierarchy.
@@ -11,9 +13,11 @@ import components.Entity;
  * @see components.Mortal
  */
 public abstract class Hero extends Entity {
-  public static final int MAX_ENERGY = 10;
+  private static final int MAX_ENERGY = 10;
 
   protected int energy;
+  @Getter
+  protected Weapon weapon;
 
   public Hero(String name) {
     super(name);
